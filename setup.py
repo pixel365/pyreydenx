@@ -19,10 +19,18 @@ setup(
     author_email='pixel.365.24@gmail.com',
     url='https://github.com/pixel365/pyreydenx',
     download_url='https://github.com/pixel365/pyreydenx/archive/master.zip',
+    project_urls={
+        'Documentation': 'https://api.reyden-x.com/docs',
+        'Source': 'https://github.com/pixel365/pyreydenx',
+    },
     keywords=['reydenx', 'twitch', 'trovo', 'youtube', 'vkplay', 'goodgame'],
     install_requires=[
         'requests',
-        'pydantic<3.0',
+        'pydantic',
+    ],
+    setup_requires=[
+        'requests',
+        'pydantic',
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
