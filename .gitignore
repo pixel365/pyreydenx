@@ -1,0 +1,14 @@
+.idea/
+.vscode
+__pycache__/
+__pypackages__/
+venv/
+dist/
+
+*.egg-info/
+.installed.cfg
+*.egg
+*.pyc
+
+.python-version
+.DS_Store
