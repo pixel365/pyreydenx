@@ -44,3 +44,4 @@ class Order(BaseModel):
     parameters: OrderParameters
     extras: Optional[dict] = Field(default=None)
     statistics: Optional[OrderStats] = Field(default=None)
+    content_classification_labels: list = Field(default=[])
