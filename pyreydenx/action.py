@@ -7,7 +7,7 @@ class Action:
     @staticmethod
     def status(client: Client, order_id: int, task_id: str) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/order_get_task_status_v1_orders__order_id__task__task_id__status__get
+        See: https://api.reyden-x.com/docs#/Orders/order_get_task_status_v1_orders__order_id__task__task_id__status__get
 
         Parameters:
             client (Client): Instance of Client
@@ -23,7 +23,7 @@ class Action:
     @staticmethod
     def run(client: Client, order_id: int) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/order_run_v1_orders__order_id__action_run__patch
+        See: https://api.reyden-x.com/docs#/Orders/order_run_v1_orders__order_id__action_run__patch
 
         Parameters:
             client (Client): Instance of Client
@@ -38,7 +38,7 @@ class Action:
     @staticmethod
     def stop(client: Client, order_id: int) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/order_stop_v1_orders__order_id__action_stop__patch
+        See: https://api.reyden-x.com/docs#/Orders/order_stop_v1_orders__order_id__action_stop__patch
 
         Parameters:
             client (Client): Instance of Client
@@ -53,7 +53,7 @@ class Action:
     @staticmethod
     def cancel(client: Client, order_id: int) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/order_cancel_v1_orders__order_id__action_cancel__patch
+        See: https://api.reyden-x.com/docs#/Orders/order_cancel_v1_orders__order_id__action_cancel__patch
 
         Parameters:
             client (Client): Instance of Client
@@ -68,7 +68,7 @@ class Action:
     @staticmethod
     def change_online_value(client: Client, order_id: int, value: int) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/order_change_online_v1_orders__order_id__action_change_online__value___patch
+        See: https://api.reyden-x.com/docs#/Orders/order_change_online_v1_orders__order_id__action_change_online__value___patch
 
         Parameters:
             client (Client): Instance of Client
@@ -84,7 +84,7 @@ class Action:
     @staticmethod
     def change_increase_value(client: Client, order_id: int, value: int) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/change_increase_value_v1_orders__order_id__action_increase_change__value___patch
+        See: https://api.reyden-x.com/docs#/Orders/change_increase_value_v1_orders__order_id__action_increase_change__value___patch
 
         Parameters:
             client (Client): Instance of Client
@@ -100,7 +100,7 @@ class Action:
     @staticmethod
     def increase_on(client: Client, order_id: int, value: int) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/increase_on_v1_orders__order_id__action_increase_on__value___patch
+        See: https://api.reyden-x.com/docs#/Orders/increase_on_v1_orders__order_id__action_increase_on__value___patch
 
         Parameters:
             client (Client): Instance of Client
@@ -116,7 +116,7 @@ class Action:
     @staticmethod
     def increase_off(client: Client, order_id: int) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/increase_off_v1_orders__order_id__action_increase_off__patch
+        See: https://api.reyden-x.com/docs#/Orders/increase_off_v1_orders__order_id__action_increase_off__patch
 
         Parameters:
             client (Client): Instance of Client
@@ -131,7 +131,7 @@ class Action:
     @staticmethod
     def add_views(client: Client, order_id: int, value: int) -> Result[Task]:
         """
-        See: https://api.reyden-x.com/docs#/default/add_views_v1_orders__order_id__action_add_views__value___patch
+        See: https://api.reyden-x.com/docs#/Orders/add_views_v1_orders__order_id__action_add_views__value___patch
 
         Parameters:
             client (Client): Instance of Client

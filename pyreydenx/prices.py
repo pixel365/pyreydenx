@@ -10,7 +10,7 @@ class Prices:
         """
         Returns all rates for a specific platform.
 
-        See: https://api.reyden-x.com/docs#/default/prices_v1_prices__platform_code___get
+        See: https://api.reyden-x.com/docs#/Prices/prices_v1_prices__platform_code___get
 
         Parameters:
             client (Client): Instance of Client

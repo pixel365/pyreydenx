@@ -8,7 +8,7 @@ class User:
         """
         Returns user account
 
-        See: https://api.reyden-x.com/docs#/default/get_user_v1_user__get
+        See: https://api.reyden-x.com/docs#/User/get_user_v1_user__get
 
         Parameters:
             client (Client): Instance of Client
@@ -24,7 +24,7 @@ class User:
         """
         Returns user balance
 
-        See: https://api.reyden-x.com/docs#/default/get_balance_v1_user_balance__get
+        See: https://api.reyden-x.com/docs#/User/get_balance_v1_user_balance__get
 
         Parameters:
             client (Client): Instance of Client

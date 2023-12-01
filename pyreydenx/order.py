@@ -18,7 +18,7 @@ class Order:
         """
         Returns list of orders
 
-        See: https://api.reyden-x.com/docs#/default/orders_v1_orders__get
+        See: https://api.reyden-x.com/docs#/Orders/orders_v1_orders__get
 
         Parameters:
             client (Client): Instance of Client
@@ -38,7 +38,7 @@ class Order:
         """
         Order details
 
-        See: https://api.reyden-x.com/docs#/default/order_details_v1_orders__order_id___get
+        See: https://api.reyden-x.com/docs#/Orders/order_details_v1_orders__order_id___get
 
         Parameters:
             client (Client): Instance of Client
@@ -55,7 +55,7 @@ class Order:
         """
         Returns list of payments for order
 
-        See: https://api.reyden-x.com/docs#/default/order_payments_v1_orders__order_id__payments__get
+        See: https://api.reyden-x.com/docs#/Orders/order_payments_v1_orders__order_id__payments__get
 
         Parameters:
             client (Client): Instance of Client
@@ -76,7 +76,7 @@ class Order:
         """
         Detailed information about users online
 
-        See: https://api.reyden-x.com/docs#/default/order_stats_online_v1_orders__order_id__statistics_online__get
+        See: https://api.reyden-x.com/docs#/Orders/order_stats_online_v1_orders__order_id__statistics_online__get
 
         Parameters:
             client (Client): Instance of Client
@@ -93,7 +93,7 @@ class Order:
         """
         Detailed information about clicks
 
-        See: https://api.reyden-x.com/docs#/default/order_stats_clicks_v1_orders__order_id__statistics_clicks__get
+        See: https://api.reyden-x.com/docs#/Orders/order_stats_clicks_v1_orders__order_id__statistics_clicks__get
 
         Parameters:
             client (Client): Instance of Client
@@ -110,7 +110,7 @@ class Order:
         """
         Detailed information about views
 
-        See: https://api.reyden-x.com/docs#/default/order_stats_views_v1_orders__order_id__statistics_views__get
+        See: https://api.reyden-x.com/docs#/Orders/order_stats_views_v1_orders__order_id__statistics_views__get
 
         Parameters:
             client (Client): Instance of Client
@@ -127,7 +127,7 @@ class Order:
         """
         Detailed information about sites
 
-        See: https://api.reyden-x.com/docs#/default/order_stats_sites_v1_orders__order_id__statistics_sites__get
+        See: https://api.reyden-x.com/docs#/Orders/order_stats_sites_v1_orders__order_id__statistics_sites__get
 
         Parameters:
             client (Client): Instance of Client
@@ -144,7 +144,7 @@ class Order:
         """
         View statistics for multiple orders
 
-        See: https://api.reyden-x.com/docs#/default/multiple_views_v1_orders_multiple_views__post
+        See: https://api.reyden-x.com/docs#/Orders/multiple_views_v1_orders_multiple_views__post
 
         Parameters:
             client (Client): Instance of Client
@@ -161,7 +161,7 @@ class Order:
         """
         Click-through statistics for multiple orders
 
-        See: https://api.reyden-x.com/docs#/default/multiple_clicks_v1_orders_multiple_clicks__post
+        See: https://api.reyden-x.com/docs#/Orders/multiple_clicks_v1_orders_multiple_clicks__post
 
         Parameters:
             client (Client): Instance of Client
@@ -178,8 +178,8 @@ class Order:
         """
         Create new order for Twitch or YouTube stream
 
-        See: https://api.reyden-x.com/docs#/default/twitch_stream_v1_orders_create_twitch_stream__post
-        See: https://api.reyden-x.com/docs#/default/youtube_stream_v1_orders_create_youtube_stream__post
+        See: https://api.reyden-x.com/docs#/Orders/twitch_stream_v1_orders_create_twitch_stream__post
+        See: https://api.reyden-x.com/docs#/Orders/youtube_stream_v1_orders_create_youtube_stream__post
 
         Parameters:
             client (Client): Instance of Client
