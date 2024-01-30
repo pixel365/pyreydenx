@@ -19,7 +19,7 @@ class Traffic:
         Returns:
             Result[List[TrafficModel]]: Result object
         """
-        r = client.get('/traffic/countries/')
+        r = client.get("/traffic/countries/")
         return Result[List[TrafficModel]](**r)
 
     @staticmethod
@@ -35,5 +35,21 @@ class Traffic:
         Returns:
             Result[List[TrafficModel]]: Result object
         """
-        r = client.get('/traffic/languages/')
+        r = client.get("/traffic/languages/")
+        return Result[List[TrafficModel]](**r)
+    
+    @staticmethod
+    def devices(client: Client):
+        """
+        Traffic statistics by language
+
+        See: https://api.reyden-x.com/docs#/Traffic/Traffic_statistics_by_device_type_v1_traffic_devices__get
+
+        Parameters:
+            client (Client): Instance of Client
+
+        Returns:
+            Result[List[TrafficModel]]: Result object
+        """
+        r = client.get("/traffic/devices/")
         return Result[List[TrafficModel]](**r)

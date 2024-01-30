@@ -16,7 +16,7 @@ class User:
         Returns:
             UserModel: UserModel object
         """
-        r = client.get('/user/')
+        r = client.get("/user/")
         return UserModel(**r)
 
     @staticmethod
@@ -32,5 +32,5 @@ class User:
         Returns:
             Balance: Balance object
         """
-        r = client.get('/user/balance/')
+        r = client.get("/user/balance/")
         return Balance(**r)

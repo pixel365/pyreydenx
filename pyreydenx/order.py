@@ -14,7 +14,9 @@ from .model.task import Task
 
 class Order:
     @staticmethod
-    def get_orders(client: Client, cursor: Optional[str] = None) -> Result[List[OrderModel]]:
+    def get_orders(
+        client: Client, cursor: Optional[str] = None
+    ) -> Result[List[OrderModel]]:
         """
         Returns list of orders
 
@@ -28,9 +30,9 @@ class Order:
             Result[List[OrderModel]]: Result object
         """
         if not cursor:
-            r = client.get(f'/orders/')
+            r = client.get("/orders/")
         else:
-            r = client.get(f'/orders/?cursor={cursor}')
+            r = client.get(f"/orders/?cursor={cursor}")
         return Result[List[OrderModel]](**r)
 
     @staticmethod
@@ -47,11 +49,13 @@ class Order:
         Returns:
             Result[OrderModel]: Result object
         """
-        r = client.get(f'/orders/{order_id}/')
+        r = client.get(f"/orders/{order_id}/")
         return Result[OrderModel](**r)
 
     @staticmethod
-    def payments(client: Client, order_id: int, cursor: Optional[str] = None) -> Result[List[Payment]]:
+    def payments(
+        client: Client, order_id: int, cursor: Optional[str] = None
+    ) -> Result[List[Payment]]:
         """
         Returns list of payments for order
 
@@ -66,9 +70,9 @@ class Order:
             Result[List[Payment]]: Result object
         """
         if not cursor:
-            r = client.get(f'/orders/{order_id}/payments/')
+            r = client.get(f"/orders/{order_id}/payments/")
         else:
-            r = client.get(f'/orders/{order_id}/payments/?cursor={cursor}')
+            r = client.get(f"/orders/{order_id}/payments/?cursor={cursor}")
         return Result[List[Payment]](**r)
 
     @staticmethod
@@ -85,7 +89,7 @@ class Order:
         Returns:
             Result[List[OnlineStat]]: Result object
         """
-        r = client.get(f'/orders/{order_id}/statistics/online/')
+        r = client.get(f"/orders/{order_id}/statistics/online/")
         return Result[List[OnlineStat]](**r)
 
     @staticmethod
@@ -102,7 +106,7 @@ class Order:
         Returns:
             Result[List[DateQty]]: Result object
         """
-        r = client.get(f'/orders/{order_id}/statistics/clicks/')
+        r = client.get(f"/orders/{order_id}/statistics/clicks/")
         return Result[List[DateQty]](**r)
 
     @staticmethod
@@ -119,7 +123,7 @@ class Order:
         Returns:
             Result[List[DateQty]]: Result object
         """
-        r = client.get(f'/orders/{order_id}/statistics/views/')
+        r = client.get(f"/orders/{order_id}/statistics/views/")
         return Result[List[DateQty]](**r)
 
     @staticmethod
@@ -136,11 +140,13 @@ class Order:
         Returns:
             Result[List[SiteStat]]: Result object
         """
-        r = client.get(f'/orders/{order_id}/statistics/sites/')
+        r = client.get(f"/orders/{order_id}/statistics/sites/")
         return Result[List[SiteStat]](**r)
 
     @staticmethod
-    def multiple_views_stats(client: Client, identifiers: List[int]) -> Result[List[IdQty]]:
+    def multiple_views_stats(
+        client: Client, identifiers: List[int]
+    ) -> Result[List[IdQty]]:
         """
         View statistics for multiple orders
 
@@ -153,11 +159,13 @@ class Order:
         Returns:
             Result[List[IdQty]]: Result object
         """
-        r = client.post(f'/orders/multiple/views/', {'identifiers': identifiers[:100]})
+        r = client.post("/orders/multiple/views/", {"identifiers": identifiers[:100]})
         return Result[List[IdQty]](**r)
 
     @staticmethod
-    def multiple_clicks_stats(client: Client, identifiers: List[int]) -> Result[List[IdQty]]:
+    def multiple_clicks_stats(
+        client: Client, identifiers: List[int]
+    ) -> Result[List[IdQty]]:
         """
         Click-through statistics for multiple orders
 
@@ -170,11 +178,13 @@ class Order:
         Returns:
             Result[List[IdQty]]: Result object
         """
-        r = client.post(f'/orders/multiple/clicks/', {'identifiers': identifiers[:100]})
+        r = client.post("/orders/multiple/clicks/", {"identifiers": identifiers[:100]})
         return Result[List[IdQty]](**r)
 
     @staticmethod
-    def create(client: Client, parameters: Union[TwitchOrder, YouTubeOrder]) -> Result[Task]:
+    def create(
+        client: Client, parameters: Union[TwitchOrder, YouTubeOrder]
+    ) -> Result[Task]:
         """
         Create new order for Twitch or YouTube stream
 
@@ -188,5 +198,7 @@ class Order:
         Returns:
             Result[Task]: Result object
         """
-        r = client.post(f'/orders/create/{parameters.platform}/stream/', parameters.dict())
+        r = client.post(
+            f"/orders/create/{parameters.platform}/stream/", parameters.dict()
+        )
         return Result[Task](**r)

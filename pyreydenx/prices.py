@@ -19,5 +19,5 @@ class Prices:
         Returns:
             Result[Price]: Result object
         """
-        r = client.get(f'/prices/{platform.value}/')
+        r = client.get(f"/prices/{platform.value}/")
         return Result[Price](**r)

@@ -17,7 +17,7 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/task/{task_id}/status/')
+        r = client.patch(f"/orders/{order_id}/task/{task_id}/status/")
         return Result[Task](**r)
 
     @staticmethod
@@ -32,7 +32,7 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/action/run/')
+        r = client.patch(f"/orders/{order_id}/action/run/")
         return Result[Task](**r)
 
     @staticmethod
@@ -47,7 +47,7 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/action/stop/')
+        r = client.patch(f"/orders/{order_id}/action/stop/")
         return Result[Task](**r)
 
     @staticmethod
@@ -62,7 +62,7 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/action/cancel/')
+        r = client.patch(f"/orders/{order_id}/action/cancel/")
         return Result[Task](**r)
 
     @staticmethod
@@ -78,11 +78,13 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/action/change/online/{value}/')
+        r = client.patch(f"/orders/{order_id}/action/change/online/{value}/")
         return Result[Task](**r)
 
     @staticmethod
-    def change_increase_value(client: Client, order_id: int, value: int) -> Result[Task]:
+    def change_increase_value(
+        client: Client, order_id: int, value: int
+    ) -> Result[Task]:
         """
         See: https://api.reyden-x.com/docs#/Orders/change_increase_value_v1_orders__order_id__action_increase_change__value___patch
 
@@ -94,7 +96,7 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/action/increase/change/{value}/')
+        r = client.patch(f"/orders/{order_id}/action/increase/change/{value}/")
         return Result[Task](**r)
 
     @staticmethod
@@ -110,7 +112,7 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/action/increase/on/{value}/')
+        r = client.patch(f"/orders/{order_id}/action/increase/on/{value}/")
         return Result[Task](**r)
 
     @staticmethod
@@ -125,7 +127,7 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/action/increase/off/')
+        r = client.patch(f"/orders/{order_id}/action/increase/off/")
         return Result[Task](**r)
 
     @staticmethod
@@ -141,5 +143,5 @@ class Action:
         Returns:
             Result[Task]: Result object
         """
-        r = client.patch(f'/orders/{order_id}/action/add/views/{value}/')
+        r = client.patch(f"/orders/{order_id}/action/add/views/{value}/")
         return Result[Task](**r)

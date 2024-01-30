@@ -3,7 +3,7 @@ from typing import Optional, Generic, TypeVar
 
 from pydantic import BaseModel, Field
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 class Result(BaseModel, Generic[T]):

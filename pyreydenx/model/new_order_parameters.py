@@ -18,7 +18,7 @@ class NewOrderParameters(BaseModel):
 
     @property
     def platform(self) -> str:
-        return ''
+        return ""
 
 
 class TwitchOrder(NewOrderParameters):

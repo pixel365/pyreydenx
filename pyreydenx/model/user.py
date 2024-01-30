@@ -14,7 +14,7 @@ class User(BaseModel):
     is_reseller: bool
     image_url: Optional[str] = Field(default=None)
     currency_id: int
-    discount: int = Field(alias='discount_value')
+    discount: int = Field(alias="discount_value")
     twitch_id: int
     twitch_login: Optional[str] = Field(default=None)
 
