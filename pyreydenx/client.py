@@ -1,7 +1,7 @@
 import os
 from typing import Optional, Dict
 
-import requests
+import httpx
 
 from .exceptions import (
     InvalidCredentialsError,
@@ -42,7 +42,7 @@ class Client:
         return self.token is not None and self.token.is_valid
 
     def auth(self):
-        r = requests.post(
+        r = httpx.post(
             f"{BASE_URL}/token/",
             data={
                 "username": self.username,
@@ -53,7 +53,7 @@ class Client:
             },
             timeout=5,
         )
-        if r.status_code == 200:
+        if r.status_code == httpx.codes.OK:
             self.token = Token(**r.json())
         else:
             self.token = None
@@ -70,28 +70,31 @@ class Client:
             "Accept": "application/json",
         }
         path = f"{BASE_URL}{path}"
-        if method == "post":
-            r = requests.post(path, json=payload, headers=headers, timeout=5)
-        elif method == "patch":
-            r = requests.patch(path, headers=headers, timeout=5)
-        else:
-            r = requests.get(path, headers=headers, timeout=5)
+        match method:
+            case "POST":
+                r = httpx.post(path, json=payload, headers=headers, timeout=5)
+            case "PATCH":
+                r = httpx.patch(path, headers=headers, timeout=5)
+            case _:
+                r = httpx.get(path, headers=headers, timeout=5)
 
-        if r.status_code == 200:
-            return r.json()
-        elif r.status_code == 401:
-            raise UnauthorizedError
-        elif r.status_code == 404:
-            raise NotFoundError
-        elif r.status_code == 429:
-            raise TooManyRequestsError
-        raise UnknownError
+        match r.status_code:
+            case httpx.codes.OK:
+                return r.json()
+            case httpx.codes.UNAUTHORIZED:
+                raise UnauthorizedError
+            case httpx.codes.NOT_FOUND:
+                raise NotFoundError
+            case httpx.codes.TOO_MANY_REQUESTS:
+                raise TooManyRequestsError
+            case _:
+                raise UnknownError
 
     def get(self, path: str) -> Optional[Dict]:
-        return self.request("get", path)
+        return self.request("GET", path)
 
     def post(self, path: str, payload: Dict) -> Optional[Dict]:
-        return self.request("post", path, payload)
+        return self.request("POST", path, payload)
 
     def patch(self, path: str) -> Optional[Dict]:
-        return self.request("patch", path)
+        return self.request("PATCH", path)

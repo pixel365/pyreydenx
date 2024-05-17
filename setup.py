@@ -10,7 +10,7 @@ setup(
     name="pyreydenx",
     packages=find_packages(),
     python_requires=">=3.9",
-    version="1.0.3",
+    version="1.0.4",
     license="Apache Software License",
     description="Reyden-X is an automated service for promoting live broadcasts on external "
     "sites with integrated system of viewers and views management.",
@@ -25,11 +25,11 @@ setup(
     },
     keywords=["reydenx", "twitch", "trovo", "youtube", "vkplay", "goodgame"],
     install_requires=[
-        "requests",
-        "pydantic",
+        "httpx>=0.20, <0.30",
+        "pydantic>=2.0, <3.0",
     ],
     setup_requires=[
-        "requests",
+        "httpx",
         "pydantic",
     ],
     classifiers=[

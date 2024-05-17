@@ -1,5 +1,6 @@
 .idea/
-.vscode
+.vscode/
+.ruff_cache/
 __pycache__/
 __pypackages__/
 venv/
