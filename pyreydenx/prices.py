@@ -1,3 +1,4 @@
+from typing import List
 from . import Client
 from .model.platform import Platform
 from .model.price import Price
@@ -6,7 +7,7 @@ from .model.result import Result
 
 class Prices:
     @staticmethod
-    def get_prices(client: Client, platform: Platform) -> Result[Price]:
+    def get_prices(client: Client, platform: Platform) -> Result[List[Price]]:
         """
         Returns all rates for a specific platform.
 
@@ -17,7 +18,7 @@ class Prices:
             platform (Platform): twitch, youtube etc.
 
         Returns:
-            Result[Price]: Result object
+            Result[List[Price]]: Result object
         """
         r = client.get(f"/prices/{platform.value}/")
-        return Result[Price](**r)
+        return Result[List[Price]](**r)
