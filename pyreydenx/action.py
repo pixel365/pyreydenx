@@ -1,11 +1,11 @@
 from . import Client
 from .model.result import Result
-from .model.task import Task
+from .model.task import Task, TaskStatus
 
 
 class Action:
     @staticmethod
-    def status(client: Client, order_id: int, task_id: str) -> Result[Task]:
+    def status(client: Client, order_id: int, task_id: str) -> TaskStatus:
         """
         See: https://api.reyden-x.com/docs#/Orders/order_get_task_status_v1_orders__order_id__task__task_id__status__get
 
@@ -15,10 +15,10 @@ class Action:
             task_id (str): Task identifier
 
         Returns:
-            Result[Task]: Result object
+            TaskStatus: TaskStatus object
         """
-        r = client.patch(f"/orders/{order_id}/task/{task_id}/status/")
-        return Result[Task](**r)
+        r = client.get(f"/orders/{order_id}/task/{task_id}/status/")
+        return TaskStatus(**r)
 
     @staticmethod
     def run(client: Client, order_id: int) -> Result[Task]:
