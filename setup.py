@@ -10,7 +10,7 @@ setup(
     name="pyreydenx",
     packages=find_packages(),
     python_requires=">=3.9",
-    version="1.0.6",
+    version="1.0.7",
     license="Apache Software License",
     description="Reyden-X is an automated service for promoting live broadcasts on external "
     "sites with integrated system of viewers and views management.",

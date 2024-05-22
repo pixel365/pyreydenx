@@ -39,6 +39,7 @@ class Order(BaseModel):
     price_per_view: float
     is_autostart: bool
     online_users_limit: int
+    tariff_id: int
     platform: Platform
     content_type: ContentType
     parameters: OrderParameters
