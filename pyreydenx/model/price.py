@@ -15,3 +15,4 @@ class Price(BaseModel):
     description: str
     views: MinMaxStep
     online_viewers: MinMaxStep
+    category_id: int
