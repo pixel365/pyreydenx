@@ -9,7 +9,7 @@ from .model.order import Order as OrderModel
 from .model.payment import Payment
 from .model.result import Result
 from .model.site_stat import SiteStat
-from .model.task import Task
+from .model.task import ActionResult
 
 
 class Order:
@@ -184,7 +184,7 @@ class Order:
     @staticmethod
     def create(
         client: Client, parameters: Union[TwitchOrder, YouTubeOrder]
-    ) -> Result[Task]:
+    ) -> ActionResult:
         """
         Create new order for Twitch or YouTube stream
 
@@ -196,9 +196,9 @@ class Order:
             parameters (NewOrderParameters): TwitchOrder or YouTubeOrder object
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.post(
             f"/orders/create/{parameters.platform}/stream/", parameters.dict()
         )
-        return Result[Task](**r)
+        return ActionResult(**r)

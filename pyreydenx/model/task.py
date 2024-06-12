@@ -22,3 +22,11 @@ class TaskStatusChoices(str, Enum):
 class TaskStatus(BaseModel):
     status: TaskStatusChoices
     details: Optional[dict] = Field(default=None)
+
+
+class ActionResult(BaseModel):
+    request_id: Optional[str]
+    order_id: Optional[int]
+    action: str
+    value: Optional[int]
+    task: Task

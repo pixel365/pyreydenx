@@ -1,6 +1,5 @@
 from . import Client
-from .model.result import Result
-from .model.task import Task, TaskStatus
+from .model.task import ActionResult, TaskStatus
 
 
 class Action:
@@ -21,7 +20,7 @@ class Action:
         return TaskStatus(**r)
 
     @staticmethod
-    def run(client: Client, order_id: int) -> Result[Task]:
+    def run(client: Client, order_id: int) -> ActionResult:
         """
         See: https://api.reyden-x.com/docs#/Orders/order_run_v1_orders__order_id__action_run__patch
 
@@ -30,13 +29,13 @@ class Action:
             order_id (int): Number of order
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/run/")
-        return Result[Task](**r)
+        return ActionResult(**r)
 
     @staticmethod
-    def stop(client: Client, order_id: int) -> Result[Task]:
+    def stop(client: Client, order_id: int) -> ActionResult:
         """
         See: https://api.reyden-x.com/docs#/Orders/order_stop_v1_orders__order_id__action_stop__patch
 
@@ -45,13 +44,13 @@ class Action:
             order_id (int): Number of order
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/stop/")
-        return Result[Task](**r)
+        return ActionResult(**r)
 
     @staticmethod
-    def cancel(client: Client, order_id: int) -> Result[Task]:
+    def cancel(client: Client, order_id: int) -> ActionResult:
         """
         See: https://api.reyden-x.com/docs#/Orders/order_cancel_v1_orders__order_id__action_cancel__patch
 
@@ -60,13 +59,13 @@ class Action:
             order_id (int): Number of order
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/cancel/")
-        return Result[Task](**r)
+        return ActionResult(**r)
 
     @staticmethod
-    def change_online_value(client: Client, order_id: int, value: int) -> Result[Task]:
+    def change_online_value(client: Client, order_id: int, value: int) -> ActionResult:
         """
         See: https://api.reyden-x.com/docs#/Orders/order_change_online_v1_orders__order_id__action_change_online__value___patch
 
@@ -76,15 +75,15 @@ class Action:
             value (int): New value
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/change/online/{value}/")
-        return Result[Task](**r)
+        return ActionResult(**r)
 
     @staticmethod
     def change_increase_value(
         client: Client, order_id: int, value: int
-    ) -> Result[Task]:
+    ) -> ActionResult:
         """
         See: https://api.reyden-x.com/docs#/Orders/change_increase_value_v1_orders__order_id__action_increase_change__value___patch
 
@@ -94,13 +93,13 @@ class Action:
             value (int): New value
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/increase/change/{value}/")
-        return Result[Task](**r)
+        return ActionResult(**r)
 
     @staticmethod
-    def increase_on(client: Client, order_id: int, value: int) -> Result[Task]:
+    def increase_on(client: Client, order_id: int, value: int) -> ActionResult:
         """
         See: https://api.reyden-x.com/docs#/Orders/increase_on_v1_orders__order_id__action_increase_on__value___patch
 
@@ -110,13 +109,13 @@ class Action:
             value (int): New value
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/increase/on/{value}/")
-        return Result[Task](**r)
+        return ActionResult(**r)
 
     @staticmethod
-    def increase_off(client: Client, order_id: int) -> Result[Task]:
+    def increase_off(client: Client, order_id: int) -> ActionResult:
         """
         See: https://api.reyden-x.com/docs#/Orders/increase_off_v1_orders__order_id__action_increase_off__patch
 
@@ -125,13 +124,13 @@ class Action:
             order_id (int): Number of order
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/increase/off/")
-        return Result[Task](**r)
+        return ActionResult(**r)
 
     @staticmethod
-    def add_views(client: Client, order_id: int, value: int) -> Result[Task]:
+    def add_views(client: Client, order_id: int, value: int) -> ActionResult:
         """
         See: https://api.reyden-x.com/docs#/Orders/add_views_v1_orders__order_id__action_add_views__value___patch
 
@@ -141,7 +140,7 @@ class Action:
             value (int): The number of views to add to the order
 
         Returns:
-            Result[Task]: Result object
+            TaskResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/add/views/{value}/")
-        return Result[Task](**r)
+        return ActionResult(**r)
