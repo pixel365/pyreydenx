@@ -25,7 +25,7 @@ class User(BaseModel):
 
 class Balance(BaseModel):
     id: int
-    amount: int
+    amount: int | float
     currency_id: int
     user_id: int
     formatted_amount: float
