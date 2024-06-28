@@ -19,10 +19,16 @@ class Client:
     __slots__ = (
         "username",
         "password",
+        "timeout",
         "token",
     )
 
-    def __init__(self, email: Optional[str] = None, password: Optional[str] = None):
+    def __init__(
+        self,
+        email: Optional[str] = None,
+        password: Optional[str] = None,
+        timeout: Optional[httpx.Timeout] = None,
+    ):
         email = email or os.getenv("REYDENX_EMAIL")
         password = password or os.getenv("REYDENX_PASSWORD")
 
@@ -34,6 +40,7 @@ class Client:
 
         self.username = email
         self.password = password
+        self.timeout = timeout or httpx.Timeout(10.0)
         self.token = None
         self.auth()
 
@@ -72,11 +79,13 @@ class Client:
         path = f"{BASE_URL}{path}"
         match method:
             case "POST":
-                r = httpx.post(path, json=payload, headers=headers, timeout=5)
+                r = httpx.post(
+                    path, json=payload, headers=headers, timeout=self.timeout
+                )
             case "PATCH":
-                r = httpx.patch(path, headers=headers, timeout=5)
+                r = httpx.patch(path, headers=headers, timeout=self.timeout)
             case _:
-                r = httpx.get(path, headers=headers, timeout=5)
+                r = httpx.get(path, headers=headers, timeout=self.timeout)
 
         match r.status_code:
             case httpx.codes.OK:
