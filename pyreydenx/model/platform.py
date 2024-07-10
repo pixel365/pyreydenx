@@ -1,9 +1,9 @@
-from enum import Enum
+from enum import StrEnum, auto
 
 
-class Platform(str, Enum):
-    TWITCH = "twitch"
-    YOUTUBE = "youtube"
-    TROVO = "trovo"
-    GOODGAME = "goodgame"
-    VKPLAY = "vkplay"
+class Platform(StrEnum):
+    TWITCH = auto()
+    YOUTUBE = auto()
+    TROVO = auto()
+    GOODGAME = auto()
+    VKPLAY = auto()

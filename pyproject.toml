@@ -1,8 +1,8 @@
 [project]
 name = "pyreydenx"
 description = "Reyden-X is an automated service for promoting live broadcasts on external sites with integrated system of viewers and views management."
-version = "1.0.3"
-requires-python = ">=3.9"
+version = "1.0.10"
+requires-python = ">=3.11"
 license = { file = "LICENSE" }
 readme = "README.md"
 keywords = ["reydenx", "twitch", "trovo", "youtube", "vkplay", "goodgame"]

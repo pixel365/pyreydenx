@@ -196,9 +196,9 @@ class Order:
             parameters (NewOrderParameters): TwitchOrder or YouTubeOrder object
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.post(
-            f"/orders/create/{parameters.platform}/stream/", parameters.dict()
+            f"/orders/create/{parameters.platform}/stream/", parameters.model_dump()
         )
         return ActionResult(**r)

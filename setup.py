@@ -9,8 +9,8 @@ with open(os.path.join(os.path.dirname(__file__), "README.md")) as readme:
 setup(
     name="pyreydenx",
     packages=find_packages(),
-    python_requires=">=3.9",
-    version="1.0.8",
+    python_requires=">=3.11",
+    version="1.0.10",
     license="Apache Software License",
     description="Reyden-X is an automated service for promoting live broadcasts on external "
     "sites with integrated system of viewers and views management.",

@@ -7,6 +7,7 @@ from .exceptions import (
     InvalidCredentialsError,
     UnauthorizedError,
     NotFoundError,
+    MethodNotAllowedError,
     TooManyRequestsError,
     UnknownError,
 )
@@ -83,7 +84,9 @@ class Client:
                     path, json=payload, headers=headers, timeout=self.timeout
                 )
             case "PATCH":
-                r = httpx.patch(path, headers=headers, timeout=self.timeout)
+                r = httpx.patch(
+                    path, json=payload, headers=headers, timeout=self.timeout
+                )
             case _:
                 r = httpx.get(path, headers=headers, timeout=self.timeout)
 
@@ -94,6 +97,8 @@ class Client:
                 raise UnauthorizedError
             case httpx.codes.NOT_FOUND:
                 raise NotFoundError
+            case httpx.codes.METHOD_NOT_ALLOWED:
+                raise MethodNotAllowedError
             case httpx.codes.TOO_MANY_REQUESTS:
                 raise TooManyRequestsError
             case _:
@@ -105,5 +110,5 @@ class Client:
     def post(self, path: str, payload: Dict) -> Optional[Dict]:
         return self.request("POST", path, payload)
 
-    def patch(self, path: str) -> Optional[Dict]:
-        return self.request("PATCH", path)
+    def patch(self, path: str, payload: Optional[Dict] = None) -> Optional[Dict]:
+        return self.request("PATCH", path, payload)

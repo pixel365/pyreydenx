@@ -1,6 +1,6 @@
-from enum import Enum
+from enum import StrEnum, auto
 
 
-class ContentType(str, Enum):
-    STREAM = "stream"
-    VIDEO = "video"
+class ContentType(StrEnum):
+    STREAM = auto()
+    VIDEO = auto()

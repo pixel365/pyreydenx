@@ -10,6 +10,10 @@ class NotFoundError(Exception):
     pass
 
 
+class MethodNotAllowedError(Exception):
+    pass
+
+
 class TooManyRequestsError(Exception):
     pass
 

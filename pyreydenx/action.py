@@ -1,5 +1,6 @@
 from . import Client
 from .model.task import ActionResult, TaskStatus
+from .model.launch_params import LaunchParams
 
 
 class Action:
@@ -29,7 +30,7 @@ class Action:
             order_id (int): Number of order
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/run/")
         return ActionResult(**r)
@@ -44,7 +45,7 @@ class Action:
             order_id (int): Number of order
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/stop/")
         return ActionResult(**r)
@@ -59,7 +60,7 @@ class Action:
             order_id (int): Number of order
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/cancel/")
         return ActionResult(**r)
@@ -75,7 +76,7 @@ class Action:
             value (int): New value
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/change/online/{value}/")
         return ActionResult(**r)
@@ -93,7 +94,7 @@ class Action:
             value (int): New value
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/increase/change/{value}/")
         return ActionResult(**r)
@@ -109,7 +110,7 @@ class Action:
             value (int): New value
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/increase/on/{value}/")
         return ActionResult(**r)
@@ -124,7 +125,7 @@ class Action:
             order_id (int): Number of order
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/increase/off/")
         return ActionResult(**r)
@@ -140,7 +141,25 @@ class Action:
             value (int): The number of views to add to the order
 
         Returns:
-            TaskResult: Result object
+            ActionResult: Result object
         """
         r = client.patch(f"/orders/{order_id}/action/add/views/{value}/")
+        return ActionResult(**r)
+
+    @staticmethod
+    def change_launch_mode(
+        client: Client, order_id: int, launch_params: LaunchParams
+    ) -> ActionResult:
+        """
+        See: https://api.reyden-x.com/docs#/Orders/change_launch_params_v1_orders__order_id__action_change_launch__patch
+
+        Parameters:
+            client (Client): Instance of Client
+            order_id (int): Number of order
+            launch_params (LaunchParams): Launch Parameters
+
+        Returns:
+            ActionResult: Result object
+        """
+        r = client.patch(f"/orders/{order_id}/action/change/launch/", launch_params.model_dump())
         return ActionResult(**r)

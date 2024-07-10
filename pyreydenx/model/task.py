@@ -1,5 +1,5 @@
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum, auto
 from typing import Optional
 
 from pydantic import BaseModel, Field
@@ -11,12 +11,12 @@ class Task(BaseModel):
     expires_at: datetime
 
 
-class TaskStatusChoices(str, Enum):
-    PENDING = "pending"
-    ERROR = "error"
-    IN_PROGRESS = "in_progress"
-    COMPLETED = "completed"
-    ACTION_REQUIRED = "action_required"
+class TaskStatusChoices(StrEnum):
+    PENDING = auto()
+    ERROR = auto()
+    IN_PROGRESS = auto()
+    COMPLETED = auto()
+    ACTION_REQUIRED = auto()
 
 
 class TaskStatus(BaseModel):
