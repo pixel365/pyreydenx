@@ -9,8 +9,8 @@ with open(os.path.join(os.path.dirname(__file__), "README.md")) as readme:
 setup(
     name="pyreydenx",
     packages=find_packages(),
-    python_requires=">=3.11",
-    version="1.0.10",
+    python_requires=">=3.13",
+    version="1.0.11",
     license="Apache Software License",
     description="Reyden-X is an automated service for promoting live broadcasts on external "
     "sites with integrated system of viewers and views management.",
@@ -23,7 +23,7 @@ setup(
         "Documentation": "https://api.reyden-x.com/docs",
         "Source": "https://github.com/pixel365/pyreydenx",
     },
-    keywords=["reydenx", "twitch", "trovo", "youtube", "vkplay", "goodgame"],
+    keywords=["reydenx", "twitch", "trovo", "youtube", "vkplay", "goodgame", "kick"],
     install_requires=[
         "httpx>=0.20, <0.30",
         "pydantic>=2.0, <3.0",

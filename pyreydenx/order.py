@@ -3,7 +3,7 @@ from typing import List, Optional, Union
 from . import Client
 from .model.date_qty import DateQty
 from .model.id_qty import IdQty
-from .model.new_order_parameters import TwitchOrder, YouTubeOrder
+from .model.new_order_parameters import TwitchOrder, YouTubeOrder, KickOrder
 from .model.online_stat import OnlineStat
 from .model.order import Order as OrderModel
 from .model.payment import Payment
@@ -183,7 +183,7 @@ class Order:
 
     @staticmethod
     def create(
-        client: Client, parameters: Union[TwitchOrder, YouTubeOrder]
+        client: Client, parameters: Union[TwitchOrder, YouTubeOrder, KickOrder]
     ) -> ActionResult:
         """
         Create new order for Twitch or YouTube stream

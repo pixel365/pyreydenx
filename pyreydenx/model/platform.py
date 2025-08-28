@@ -7,3 +7,4 @@ class Platform(StrEnum):
     TROVO = auto()
     GOODGAME = auto()
     VKPLAY = auto()
+    KICK = auto()
